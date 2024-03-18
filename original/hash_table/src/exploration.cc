@@ -7,3 +7,12 @@
 // Autor: José Ángel Portillo García
 // Correo: alu0101568232@ull.edu.es
 // Fecha: 08/03/2024
+
+#include <iostream>
+
+#include "exploration.h"
+
+template<class Key>
+unsigned LinealExploration<Key>::operator() (const Key&, unsigned exploration_tries) {
+  
+}
