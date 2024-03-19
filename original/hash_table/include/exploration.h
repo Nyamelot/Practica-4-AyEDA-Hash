@@ -13,6 +13,8 @@
 
 #include <iostream>
 
+#include <dispersion.h>
+
 template<class Key>
 class ExplorationFunction {
  public:
@@ -45,11 +47,13 @@ class QuadraticExploration : public ExplorationFunction<Key> {
 template<class Key>
 class DobleDispersionExploration : public ExplorationFunction<Key> {
  public:
-  DobleDispersionExploration(int table_size) : table_size_(table_size) {}
+  DobleDispersionExploration(int table_size, const DispersionFunction<Key>& dispersion_function) : 
+  table_size_(table_size), dispersion_function_(dispersion_function) {}
   unsigned operator() (const Key&, unsigned exploration_tries) override;
 
  protected:
   int table_size_;
+  DispersionFunction<Key> dispersion_function_;
 };
 
 
