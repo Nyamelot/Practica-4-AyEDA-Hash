@@ -26,7 +26,7 @@ template<class Key>
 class LinealExploration : public ExplorationFunction<Key> {
  public:
   LinealExploration(int table_size) : table_size_(table_size) {}
-  unsigned operator() (const Key&, unsigned exploration_tries) override;
+  unsigned operator() (const Key&, unsigned exploration_tries) const override;
 
  protected:
   int table_size_;
@@ -37,7 +37,7 @@ template<class Key>
 class QuadraticExploration : public ExplorationFunction<Key> {
  public:
   QuadraticExploration(int table_size) : table_size_(table_size) {}
-  unsigned operator() (const Key&, unsigned exploration_tries) override;
+  unsigned operator() (const Key&, unsigned exploration_tries) const override;
 
  protected:
   int table_size_;
@@ -47,13 +47,13 @@ class QuadraticExploration : public ExplorationFunction<Key> {
 template<class Key>
 class DobleDispersionExploration : public ExplorationFunction<Key> {
  public:
-  DobleDispersionExploration(int table_size, const DispersionFunction<Key>& dispersion_function) : 
+  DobleDispersionExploration(int table_size, DispersionFunction<Key>& dispersion_function) : 
   table_size_(table_size), dispersion_function_(dispersion_function) {}
-  unsigned operator() (const Key&, unsigned exploration_tries) override;
+  unsigned operator() (const Key&, unsigned exploration_tries) const override;
 
  protected:
   int table_size_;
-  DispersionFunction<Key> dispersion_function_;
+  DispersionFunction<Key>& dispersion_function_;
 };
 
 
@@ -61,10 +61,12 @@ template<class Key>
 class RedispersionExploration : public ExplorationFunction<Key> {
  public:
   RedispersionExploration(int table_size) : table_size_(table_size) {}
-  unsigned operator() (const Key&, unsigned exploration_tries) override;
+  unsigned operator() (const Key&, unsigned exploration_tries) const override;
 
  protected:
   int table_size_;
 };
+
+
 
 #endif

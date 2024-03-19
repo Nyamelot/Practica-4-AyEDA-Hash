@@ -13,10 +13,18 @@
 
 #include <iostream>
 
-class DNI {
+class NIF {
  public:
+  NIF();
+  NIF(long num) : identification_(num) {}
+
+  bool operator==(const NIF& nif) const;
+  bool operator==(unsigned) const;
+  inline int const GetID() const { return identification_; } 
+  operator long() const;
 
  private:
+ long identification_;
 };
 
 #endif
