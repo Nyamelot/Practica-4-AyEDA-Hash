@@ -30,3 +30,9 @@ NIF::operator long() const {
 bool NIF::operator==(unsigned num) const {
   return identification_ == num;
 }
+
+
+std::ostream& operator<<(std::ostream& os, const NIF& nif) {
+  os << nif.GetID();
+  return os;
+}

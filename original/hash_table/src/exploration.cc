@@ -14,6 +14,7 @@
 #include <cstdlib>
 
 #include "exploration.h"
+#include "nif.h"
 
 template<class Key>
 unsigned LinealExploration<Key>::operator() (const Key& key, unsigned exploration_tries) const {
@@ -47,3 +48,7 @@ template class LinealExploration<int>;
 template class QuadraticExploration<int>;
 template class DobleDispersionExploration<int>;
 template class RedispersionExploration<int>;
+template class LinealExploration<NIF>;
+template class QuadraticExploration<NIF>;
+template class DobleDispersionExploration<NIF>;
+template class RedispersionExploration<NIF>;

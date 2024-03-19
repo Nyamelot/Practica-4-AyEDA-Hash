@@ -14,6 +14,7 @@
 #include <cstdlib>
 
 #include "hash.h"
+#include "nif.h"
 
 template<class Key>
 StaticSequence<Key>::StaticSequence(const int& size) {
@@ -222,3 +223,7 @@ template class StaticSequence<int>;
 template class DynamicSequence<int>;
 template class HashTable<int, StaticSequence<int>>;
 template class HashTable<int, DynamicSequence<int>>;
+template class StaticSequence<NIF>;
+template class DynamicSequence<NIF>;
+template class HashTable<NIF, StaticSequence<NIF>>;
+template class HashTable<NIF, DynamicSequence<NIF>>;

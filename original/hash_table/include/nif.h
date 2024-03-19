@@ -22,6 +22,7 @@ class NIF {
   bool operator==(unsigned) const;
   inline int const GetID() const { return identification_; } 
   operator long() const;
+  friend std::ostream& operator<<(std::ostream& os, const NIF& nif);
 
  private:
  long identification_;

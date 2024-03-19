@@ -13,6 +13,7 @@
 #include <cstdlib>
 
 #include "dispersion.h"
+#include "nif.h"
 
 template<class Key>
 unsigned ModuleDispersion<Key>::operator() (const Key& key) const {
@@ -26,7 +27,7 @@ unsigned SumDispersion<Key>::operator() (const Key& key) const {
   int sum_digit = 0;
   while (key_copy > 0) {
     sum_digit = key_copy % 10;
-    key_copy /= 10;
+    key_copy = key_copy / 10;
   }
   return sum_digit % table_size_;
 }
@@ -41,3 +42,6 @@ unsigned RandomDispersion<Key>::operator() (const Key& key) const {
 template class ModuleDispersion<int>;
 template class SumDispersion<int>;
 template class RandomDispersion<int>;
+template class ModuleDispersion<NIF>;
+template class SumDispersion<NIF>;
+template class RandomDispersion<NIF>;
